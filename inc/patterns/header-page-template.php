@@ -1,9 +1,9 @@
 <?php
 /**
- * Header Shortcode Pattern
+ * Header Page Template Pattern
  *
- * Inserts [edun_header] shortcode - pulls content from the "Header" page
- * Create a page with slug "header" and design your header there
+ * Use this pattern ON the "Header" page to design your header
+ * Then use [edun_header] shortcode on other pages to pull this content
  *
  * @package Edun_Child
  */
@@ -14,14 +14,10 @@ if (!defined('ABSPATH')) {
 }
 
 return array(
-    'title'       => __('Header (Shortcode)', 'edun-child'),
-    'description' => __('Inserts [edun_header] - pulls content from Header page', 'edun-child'),
+    'title'       => __('Header Page Template', 'edun-child'),
+    'description' => __('Complete header design - use this ON the Header page', 'edun-child'),
     'categories'  => array('edun', 'header'),
-    'content'     => '<!-- wp:shortcode -->
-[edun_header]
-<!-- /wp:shortcode -->
-
-<!-- wp:group {"align":"full","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"},"className":"edun-header-navbar"} -->
+    'content'     => '<!-- wp:group {"align":"full","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"},"className":"edun-header-navbar"} -->
 <div class="wp-block-group alignfull edun-header-navbar">
 
 <!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"edun-logo"} -->
@@ -48,43 +44,6 @@ return array(
 
 </div>
 <!-- /wp:buttons -->
-
-</div>
-<!-- /wp:group -->
-
-<!-- wp:group {"className":"edun-mobile-menu-overlay"} -->
-<div class="wp-block-group edun-mobile-menu-overlay">
-
-<!-- wp:group {"className":"edun-mobile-menu-content"} -->
-<div class="wp-block-group edun-mobile-menu-content">
-
-<!-- wp:navigation {"className":"edun-mobile-nav"} -->
-<!-- wp:navigation-link {"label":"Home","url":"/"} /-->
-<!-- wp:navigation-link {"label":"About","url":"/about"} /-->
-<!-- wp:navigation-link {"label":"Products","url":"/products"} /-->
-<!-- wp:navigation-link {"label":"Partners","url":"/partners"} /-->
-<!-- wp:navigation-link {"label":"Contact","url":"/contact"} /-->
-<!-- /wp:navigation -->
-
-<!-- wp:buttons {"className":"edun-mobile-menu-buttons"} -->
-<div class="wp-block-buttons edun-mobile-menu-buttons">
-
-<!-- wp:button {"className":"edun-mobile-btn-login"} -->
-<div class="wp-block-button edun-mobile-btn-login"><a class="wp-block-button__link wp-element-button" href="/login">Login</a></div>
-<!-- /wp:button -->
-
-<!-- wp:button {"className":"edun-mobile-btn-get-started"} -->
-<div class="wp-block-button edun-mobile-btn-get-started"><a class="wp-block-button__link wp-element-button" href="/get-started">Get started</a></div>
-<!-- /wp:button -->
-
-</div>
-<!-- /wp:buttons -->
-
-</div>
-<!-- /wp:group -->
-
-</div>
-<!-- /wp:group -->
 
 </div>
 <!-- /wp:group -->',

@@ -247,6 +247,37 @@
     margin-bottom: 28px !important;
 }
 
+/* App Store Badges */
+.edun-app-store-badges {
+    gap: 40px !important;
+    margin-top: 28px !important;
+    margin-bottom: 20px !important;
+}
+
+.edun-app-store-badge,
+.edun-google-play-badge {
+    margin: 0 !important;
+}
+
+.edun-app-store-badge img,
+.edun-google-play-badge img {
+    display: block !important;
+    border: 1px solid #a6a6a6 !important;
+    border-radius: 7px !important;
+    background-color: #0c0d10 !important;
+    transition: opacity 0.3s ease, transform 0.2s ease !important;
+}
+
+.edun-google-play-badge img {
+    border-radius: 5px !important;
+}
+
+.edun-app-store-badge img:hover,
+.edun-google-play-badge img:hover {
+    opacity: 0.9 !important;
+    transform: translateY(-2px) !important;
+}
+
 .edun-what-is-buttons {
     margin-top: 28px !important;
 }
@@ -626,7 +657,7 @@
     font-family: 'Poppins', sans-serif !important;
     font-size: 32px !important;
     font-weight: 700 !important;
-    line-height: 1 !important;
+    line-height: normal !important;
     letter-spacing: 0 !important;
     color: var(--edun-primary-color) !important;
     margin-top: 0 !important;
@@ -637,7 +668,7 @@
     font-family: 'Poppins', sans-serif !important;
     font-size: 16px !important;
     font-weight: 400 !important;
-    line-height: 1.5 !important;
+    line-height: normal !important;
     color: var(--edun-text-gray) !important;
     margin-bottom: 28px !important;
 }
@@ -698,7 +729,7 @@
     font-family: 'Poppins', sans-serif !important;
     font-size: 18px !important;
     font-weight: 700 !important;
-    line-height: 1 !important;
+    line-height: normal !important;
     color: var(--edun-primary-color) !important;
     margin-bottom: 20px !important;
 }
@@ -707,7 +738,7 @@
     font-family: 'Poppins', sans-serif !important;
     font-size: 32px !important;
     font-weight: 700 !important;
-    line-height: 1 !important;
+    line-height: normal !important;
     letter-spacing: 0 !important;
     color: var(--edun-primary-color) !important;
     margin-top: 0 !important;
@@ -718,7 +749,7 @@
     font-family: 'Poppins', sans-serif !important;
     font-size: 16px !important;
     font-weight: 400 !important;
-    line-height: 1.5 !important;
+    line-height: normal !important;
     color: var(--edun-text-gray) !important;
     margin-bottom: 28px !important;
 }
@@ -809,10 +840,6 @@
    RESPONSIVE DESIGN
    ============================================ */
 @media (max-width: 1280px) {
-    .wp-block-group.alignfull {
-        padding-left: 80px !important;
-        padding-right: 80px !important;
-    }
 
     /* Adjust decorative elements for smaller screens */
     .edun-pattern-core-crm::after,
@@ -949,6 +976,15 @@
 
 .edun-menu-toggle {
     display: none;
+}
+.hameberger-menu .edun-menu-toggle{
+    width: 40px;
+}
+.hameberger-menu .edun-menu-toggle .wp-element-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px !important;
 }
 
 @media (max-width: 768px) {

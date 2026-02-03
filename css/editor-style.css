@@ -1,0 +1,25 @@
+/**
+ * Edun Child Theme - Editor Styles
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
+
+.editor-styles-wrapper {
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Edun Colors */
+.has-edun-dark-green-color { color: #1a2e23; }
+.has-edun-dark-green-background-color { background-color: #1a2e23; }
+.has-edun-medium-green-color { color: #2d4a3e; }
+.has-edun-medium-green-background-color { background-color: #2d4a3e; }
+.has-edun-accent-green-color { color: #3d6b5a; }
+.has-edun-accent-green-background-color { background-color: #3d6b5a; }
+.has-edun-light-green-color { color: #5a6b60; }
+.has-edun-light-green-background-color { background-color: #5a6b60; }
+.has-edun-off-white-color { color: #f5f7f2; }
+.has-edun-off-white-background-color { background-color: #f5f7f2; }
+.has-edun-gold-color { color: #d4a853; }
+.has-edun-gold-background-color { background-color: #d4a853; }
+.has-edun-white-color { color: #ffffff; }
+.has-edun-white-background-color { background-color: #ffffff; }

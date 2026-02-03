@@ -1,0 +1,203 @@
+/* Core CRM Sidebar Panel Styles */
+
+/* Main Panel - Full screen overlay container */
+.crm-sidebar-panel,
+#core-crm-sidebar {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    z-index: 999999 !important;
+    pointer-events: none;
+    visibility: hidden;
+    opacity: 0;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: rgba(0, 0, 0, 0.5) !important;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    display: block !important;
+    max-width: none !important;
+}
+
+.crm-sidebar-panel.active,
+#core-crm-sidebar.active {
+    pointer-events: auto;
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Sidebar Content - Slides from right */
+.crm-sidebar-content {
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    left: auto !important;
+    bottom: 0 !important;
+    width: 480px !important;
+    max-width: 90vw !important;
+    height: 100vh !important;
+    background: #ffffff !important;
+    box-shadow: -4px 0 24px rgba(0, 0, 0, 0.15) !important;
+    transform: translateX(100%) !important;
+    transition: transform 0.3s ease !important;
+    overflow-y: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    margin: 0 !important;
+    z-index: 1000000 !important;
+}
+
+.crm-sidebar-panel.active .crm-sidebar-content,
+#core-crm-sidebar.active .crm-sidebar-content {
+    transform: translateX(0) !important;
+}
+
+/* Header */
+.crm-sidebar-header {
+    flex-shrink: 0;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+}
+
+.crm-sidebar-title {
+    flex: 1;
+    margin: 0 !important;
+}
+
+/* Close Button */
+.crm-sidebar-close {
+    cursor: pointer !important;
+}
+
+.crm-sidebar-close .wp-block-button__link,
+.crm-sidebar-close a {
+    width: 48px !important;
+    height: 48px !important;
+    min-width: 48px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 24px !important;
+    line-height: 1 !important;
+    padding: 0 !important;
+    cursor: pointer !important;
+    transition: background-color 0.2s ease !important;
+    border-radius: 50% !important;
+    text-decoration: none !important;
+}
+
+.crm-sidebar-close .wp-block-button__link:hover,
+.crm-sidebar-close a:hover {
+    background: #2d4a40 !important;
+}
+
+/* Accordion */
+.crm-sidebar-accordion {
+    padding: 0;
+    flex: 1;
+}
+
+.crm-accordion-item {
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.crm-accordion-item:hover {
+    background-color: #f8f8f8;
+}
+
+.crm-accordion-title {
+    position: relative;
+    padding-right: 40px !important;
+    cursor: pointer;
+}
+
+.crm-accordion-icon {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    color: #2c2c2c;
+}
+
+.crm-accordion-icon svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.crm-accordion-icon .icon-minus {
+    opacity: 0;
+    transform: rotate(-90deg);
+}
+
+.crm-accordion-icon .icon-plus {
+    opacity: 1;
+    transform: rotate(0deg);
+}
+
+.crm-accordion-item.active .crm-accordion-icon .icon-minus {
+    opacity: 1;
+    transform: rotate(0deg);
+}
+
+.crm-accordion-item.active .crm-accordion-icon .icon-plus {
+    opacity: 0;
+    transform: rotate(90deg);
+}
+
+/* Accordion Content */
+.crm-accordion-item:not(.active) .crm-accordion-content {
+    display: none !important;
+}
+
+.crm-accordion-item.active .crm-accordion-content {
+    display: block !important;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .crm-sidebar-content {
+        width: 100vw !important;
+        max-width: 100vw !important;
+    }
+
+    .crm-sidebar-close .wp-block-button__link,
+    .crm-sidebar-close a {
+        width: 40px !important;
+        height: 40px !important;
+        min-width: 40px !important;
+        font-size: 20px !important;
+    }
+}
+
+/* Smooth Scrolling */
+.crm-sidebar-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.crm-sidebar-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.crm-sidebar-content::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.crm-sidebar-content::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Body scroll lock when sidebar is open */
+body.crm-sidebar-open {
+    overflow: hidden !important;
+}

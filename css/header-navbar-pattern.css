@@ -1,0 +1,119 @@
+/**
+ * Header Navbar Pattern Styles
+ *
+ * Styles for the Figma-based header navbar pattern
+ *
+ * @package Edun_Child
+ */
+
+/* ============================================
+   HEADER NAVBAR PATTERN
+   ============================================ */
+.edun-header-navbar {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 100000 !important;
+}
+
+.edun-logo-container a {
+    display: inline-block;
+    line-height: 0;
+}
+
+.edun-logo-container img {
+    display: block;
+}
+
+/* Button Styles */
+.edun-btn-secondary .wp-block-button__link {
+    transition: all 0.3s ease;
+}
+
+.edun-btn-secondary .wp-block-button__link:hover {
+    background-color: #294338 !important;
+    color: #F7F6F0 !important;
+}
+
+.edun-btn-primary .wp-block-button__link {
+    transition: all 0.3s ease;
+}
+
+.edun-btn-primary .wp-block-button__link:hover {
+    background-color: #1a2e23 !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(41, 67, 56, 0.3);
+}
+
+.edun-menu-toggle-btn .wp-block-button__link {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.edun-menu-toggle-btn .wp-block-button__link:hover {
+    background-color: #1a2e23 !important;
+}
+
+.edun-menu-toggle-btn svg {
+    pointer-events: none;
+}
+
+/* ============================================
+   RESPONSIVE - MOBILE
+   ============================================ */
+@media (max-width: 768px) {
+    .edun-navbar {
+        padding: 16px !important;
+    }
+
+    /* Hide login and get started buttons on small screens */
+    .edun-btn-secondary,
+    .edun-btn-primary {
+        display: none !important;
+    }
+
+    /* Keep only the menu toggle visible */
+    .edun-menu-toggle-btn {
+        display: block !important;
+    }
+}
+
+/* ============================================
+   RESPONSIVE - TABLET
+   ============================================ */
+@media (min-width: 769px) and (max-width: 991px) {
+    .edun-navbar {
+        padding: 18px 24px !important;
+    }
+
+    /* Show all buttons on tablet */
+    .edun-btn-secondary,
+    .edun-btn-primary,
+    .edun-menu-toggle-btn {
+        display: block !important;
+    }
+}
+
+/* ============================================
+   RESPONSIVE - DESKTOP
+   ============================================ */
+@media (min-width: 992px) {
+    .edun-navbar {
+        padding: 20px 40px !important;
+    }
+
+    /* Show all buttons on desktop */
+    .edun-btn-secondary,
+    .edun-btn-primary,
+    .edun-menu-toggle-btn {
+        display: block !important;
+    }
+}
+
+/* ============================================
+   RESPONSIVE - LARGE DESKTOP
+   ============================================ */
+@media (min-width: 1200px) {
+    .edun-navbar {
+        padding: 20px 60px !important;
+    }
+}

@@ -1,0 +1,782 @@
+/**
+ * Edun Block Patterns Custom Styles
+ *
+ * Additional CSS for pixel-perfect pattern rendering
+ *
+ * @package Edun_Child
+ */
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+.edun-hero-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.edun-hero-section .wp-block-cover__inner-container {
+    max-width: 100%;
+    width: 100%;
+}
+
+/* Hero section decorative circles */
+.edun-hero-section .wp-block-cover__background {
+    z-index: 0;
+}
+
+/* Large green circle - behind hero image (Ellipse1 from Figma) */
+/* .edun-hero-section .wp-block-cover__inner-container::before {
+    content: '';
+    position: absolute;
+    right: 74px;
+    top: 422px;
+    width: 549px;
+    height: 549px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(93, 166, 129, 0.2) 0%, rgba(71, 114, 87, 0.15) 100%);
+    z-index: 0;
+    pointer-events: none;
+} */
+
+/* Medium orange/gold circle - top right (Ellipse2 from Figma) */
+/* .edun-hero-section .wp-block-cover__inner-container::after {
+    content: '';
+    position: absolute;
+    right: 452px;
+    top: 426px;
+    width: 155px;
+    height: 155px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(212, 168, 83, 0.25) 0%, rgba(213, 213, 188, 0.2) 100%);
+    z-index: 0;
+    pointer-events: none;
+} */
+
+/* Hero section wave divider */
+/* .edun-hero-section::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 118px;
+    background-image: url('../assets/svg/wave-bottom-white.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    z-index: 1;
+    pointer-events: none;
+} */
+
+/* Additional decorative circles for hero section */
+.edun-hero-section .edun-hero-image::before {
+    content: '';
+    position: absolute;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(213, 213, 188, 0.25) 0%, rgba(213, 213, 188, 0.1) 100%);
+    right: 328px;
+    top: 195px;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.edun-hero-section .edun-hero-image::after {
+    content: '';
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(71, 114, 87, 0.2) 0%, rgba(71, 114, 87, 0.08) 100%);
+    right: 357px;
+    top: 43px;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Responsive adjustments for hero */
+@media (max-width: 1024px) {
+    .edun-hero-section {
+        padding-left: 40px !important;
+        padding-right: 40px !important;
+    }
+
+    .edun-hero-section .wp-block-columns {
+        flex-wrap: wrap;
+    }
+
+    .edun-hero-section .wp-block-column {
+        flex-basis: 100% !important;
+    }
+}
+
+/* ============================================
+   TYPOGRAPHY REFINEMENTS
+   ============================================ */
+.wp-block-heading,
+.wp-block-paragraph,
+.wp-block-button__link {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+}
+
+.has-poppins-font-family {
+    font-family: 'Poppins', sans-serif !important;
+}
+
+/* Smooth font rendering */
+.wp-block-heading {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'kern' 1;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+.wp-block-button__link {
+    transition: all 0.3s ease;
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.wp-block-button__link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(45, 74, 62, 0.2);
+}
+
+.wp-block-button.is-style-outline .wp-block-button__link:hover {
+    opacity: 0.8;
+    transform: none;
+    box-shadow: none;
+}
+
+/* ============================================
+   IMAGES
+   ============================================ */
+.wp-block-image img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Image shadow effect */
+.wp-block-image.has-custom-border img {
+    box-shadow: 0 20px 60px rgba(26, 46, 35, 0.1);
+}
+
+/* ============================================
+   WAVE DIVIDERS
+   ============================================ */
+
+/* Wave divider utility classes */
+/* .edun-wave-divider-bottom-white::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 118px;
+    background-image: url('../assets/svg/wave-bottom-white.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    z-index: 1;
+    pointer-events: none;
+} */
+
+.edun-wave-divider-top-white::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: 100%;
+    height: 118px;
+    background-image: url('../assets/svg/wave-top-white.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* ============================================
+   YOUR PARTNER SECTION
+   ============================================ */
+.edun-partner-section {
+    position: relative;
+    background-color: #FFFFFF;
+}
+
+.edun-partner-section .wp-block-image img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Underline button styling */
+.edun-underline-button {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.edun-underline-button:hover {
+    opacity: 0.8;
+}
+
+.edun-underline-button p {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Ensure proper spacing in columns */
+.edun-partner-section .wp-block-columns {
+    align-items: center;
+}
+
+/* ============================================
+   DECORATIVE ELEMENTS
+   ============================================ */
+
+/* Decorative dots for sections */
+.edun-decorative-dots::before,
+.edun-decorative-dots::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(90, 107, 96, 0.1);
+}
+
+/* Core CRM Feature Section - Decorative leaves right side */
+.edun-pattern-core-crm {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative leaf element on right side */
+.edun-pattern-core-crm::after {
+    content: '';
+    position: absolute;
+    right: 40px;
+    bottom: 100px;
+    width: 389px;
+    height: 225px;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 389 225"><ellipse cx="100" cy="100" rx="80" ry="100" fill="%23294338" opacity="0.08" transform="rotate(-30 100 100)"/><ellipse cx="250" cy="120" rx="70" ry="90" fill="%23294338" opacity="0.06" transform="rotate(15 250 120)"/><ellipse cx="180" cy="80" rx="50" ry="70" fill="%23477257" opacity="0.05" transform="rotate(-15 180 80)"/></svg>') no-repeat center;
+    background-size: contain;
+    transform: rotate(-25deg);
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+/* Connect Feature Section - Decorative leaves left side */
+.edun-pattern-connect {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative leaf element on left side */
+.edun-pattern-connect::before {
+    content: '';
+    position: absolute;
+    left: 40px;
+    top: 80px;
+    width: 389px;
+    height: 225px;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 389 225"><ellipse cx="150" cy="110" rx="75" ry="95" fill="%23294338" opacity="0.07" transform="rotate(25 150 110)"/><ellipse cx="280" cy="100" rx="65" ry="85" fill="%23294338" opacity="0.05" transform="rotate(-20 280 100)"/><ellipse cx="200" cy="150" rx="55" ry="75" fill="%23477257" opacity="0.06" transform="rotate(10 200 150)"/></svg>') no-repeat center;
+    background-size: contain;
+    transform: rotate(25deg);
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+
+/* Ensure content is above decorative elements */
+.wp-block-group > .wp-block-columns,
+.wp-block-group > .wp-block-heading,
+.wp-block-group > .wp-block-paragraph,
+.wp-block-group > .wp-block-buttons {
+    position: relative;
+    z-index: 2;
+}
+
+/* ============================================
+   COLUMNS & SPACING
+   ============================================ */
+.wp-block-columns.are-vertically-aligned-center {
+    align-items: center;
+}
+
+/* Ensure consistent column gaps */
+.wp-block-columns {
+    margin-bottom: 0;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 1280px) {
+    .wp-block-group.alignfull {
+        padding-left: 80px !important;
+        padding-right: 80px !important;
+    }
+
+    /* Adjust decorative elements for smaller screens */
+    .edun-pattern-core-crm::after,
+    .edun-pattern-connect::before {
+        width: 300px;
+        height: 180px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .wp-block-group.alignfull {
+        padding-left: 40px !important;
+        padding-right: 40px !important;
+        padding-top: 60px !important;
+        padding-bottom: 60px !important;
+    }
+
+    .wp-block-columns {
+        flex-wrap: wrap;
+    }
+
+    .wp-block-column {
+        flex-basis: 100% !important;
+        margin-bottom: 40px;
+    }
+
+    .wp-block-column:last-child {
+        margin-bottom: 0;
+    }
+
+    /* Typography adjustments for tablets */
+    h1 {
+        font-size: 48px !important;
+    }
+
+    h2 {
+        font-size: 36px !important;
+    }
+
+    /* Partner section responsive */
+    .edun-partner-section .wp-block-columns {
+        gap: 40px !important;
+    }
+
+    .edun-partner-section {
+        padding-left: 80px !important;
+        padding-right: 80px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .wp-block-group.alignfull {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+        padding-top: 40px !important;
+        padding-bottom: 40px !important;
+    }
+
+    /* Typography adjustments for mobile */
+    h1 {
+        font-size: 36px !important;
+        line-height: 1.2 !important;
+    }
+
+    h2 {
+        font-size: 28px !important;
+        line-height: 1.2 !important;
+    }
+
+    .wp-block-paragraph {
+        font-size: 15px !important;
+    }
+
+    /* Button stack on mobile */
+    .wp-block-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .wp-block-button {
+        margin-bottom: 12px;
+    }
+
+    .wp-block-button:last-child {
+        margin-bottom: 0;
+    }
+
+    /* Partner section mobile */
+    .edun-partner-section {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
+
+    .edun-partner-section .wp-block-column {
+        flex-basis: 100% !important;
+        width: 100% !important;
+    }
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+.wp-block-button__link:focus,
+.wp-block-button__link:focus-visible {
+    outline: 2px solid #2d4a3e;
+    outline-offset: 2px;
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .wp-block-button__link {
+        transition: none;
+    }
+
+    .wp-block-button__link:hover {
+        transform: none;
+    }
+}
+
+/* ============================================
+   NAVBAR STYLES
+   ============================================ */
+.edun-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 1px 0 0 #F7F6F0;
+}
+
+.edun-navbar .edun-logo img {
+    width: 112px;
+    height: 30px;
+}
+
+.edun-menu-toggle {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .edun-menu-toggle {
+        display: block;
+    }
+
+    .edun-navbar .wp-block-buttons > .wp-block-button:not(.edun-menu-toggle) {
+        display: none;
+    }
+}
+
+/* ============================================
+   FOOTER STYLES
+   ============================================ */
+.edun-footer {
+    background-color: #212121 !important;
+}
+
+.edun-footer .edun-footer-logo img {
+    filter: brightness(0) invert(1);
+}
+
+.edun-footer a {
+    transition: opacity 0.3s ease;
+}
+
+.edun-footer a:hover {
+    opacity: 0.8;
+}
+
+/* ============================================
+   HERO IMAGE DECORATIVE ELEMENTS
+   ============================================ */
+.edun-hero-image {
+    position: relative;
+    z-index: 2;
+}
+
+/* ============================================
+   EXACT FIGMA COLORS
+   ============================================ */
+:root {
+    --edun-cream: #F7F6F0;
+    --edun-green: #294338;
+    --edun-green-medium: #477257;
+    --edun-olive: #D5D5BC;
+    --edun-gray: #7C7C7C;
+    --edun-white: #FFFFFF;
+    --edun-dark: #212121;
+}
+
+/* Apply exact colors */
+.has-edun-cream-background {
+    background-color: var(--edun-cream) !important;
+}
+
+.has-edun-green-background {
+    background-color: var(--edun-green) !important;
+}
+
+.has-edun-green-medium-background {
+    background-color: var(--edun-green-medium) !important;
+}
+
+.has-edun-white-background {
+    background-color: var(--edun-white) !important;
+}
+
+/* ============================================
+   WHO WE ARE SECTION - TEAM MEMBERS
+   ============================================ */
+.edun-who-we-are-section {
+    position: relative;
+}
+
+/* Team grid layout - spread items evenly */
+.edun-team-grid .wp-block-columns {
+    justify-content: center !important;
+    align-items: flex-start;
+}
+
+/* Ensure columns don't have fixed widths, let them flex */
+.edun-team-grid .wp-block-column {
+    flex-grow: 0 !important;
+    flex-shrink: 0 !important;
+}
+
+/* Team member photo styling */
+.edun-team-member-photo {
+    margin-bottom: 0 !important;
+}
+
+.edun-team-member-photo img {
+    width: 169px !important;
+    height: 169px !important;
+    object-fit: cover !important;
+    border: 4px solid #477257 !important;
+    border-radius: 100px !important;
+    display: block;
+}
+
+/* Team member text styling */
+.edun-who-we-are-section .wp-block-group .wp-block-paragraph {
+    text-align: center;
+}
+
+/* Responsive adjustments for team grid */
+@media (max-width: 1024px) {
+    .edun-who-we-are-section {
+        padding-left: 40px !important;
+        padding-right: 40px !important;
+    }
+
+    .edun-team-grid .wp-block-columns {
+        justify-content: center !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .edun-who-we-are-section {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+        padding-top: 60px !important;
+        padding-bottom: 60px !important;
+    }
+
+    .edun-team-grid .wp-block-columns {
+        justify-content: center !important;
+        flex-wrap: wrap !important;
+    }
+
+    .edun-team-grid .wp-block-column {
+        flex-basis: calc(50% - 15px) !important;
+        margin-bottom: 30px !important;
+    }
+
+    .edun-team-member-photo img {
+        width: 140px !important;
+        height: 140px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .edun-team-grid .wp-block-column {
+        flex-basis: 100% !important;
+    }
+}
+
+/* ============================================
+   INTEGRATIONS/PARTNERS LOGO SLIDER
+   ============================================ */
+.edun-integrations-slider-section {
+    position: relative;
+}
+
+/* Logo slider container */
+.edun-logo-slider-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.edun-logo-slider-wrapper {
+    width: 100%;
+    overflow: hidden;
+}
+
+.edun-logo-slider-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Logo items */
+.edun-logo-item {
+    flex: 0 0 calc((100% - 100px) / 6); /* 6 items with 20px gaps */
+    min-width: 0;
+    background: #D5D5BC;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 !important;
+}
+
+.edun-logo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain !important;
+    display: block;
+}
+
+/* Navigation buttons */
+.edun-slider-navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin-top: 40px;
+}
+
+.edun-slider-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid #294338;
+    background: transparent;
+    color: #294338;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+    outline: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+}
+
+.edun-slider-btn:hover:not(:disabled) {
+    background: #294338;
+    color: #FFFFFF;
+}
+
+.edun-slider-btn:focus,
+.edun-slider-btn:focus-visible {
+    outline: none !important;
+    border-color: #477257 !important;
+    box-shadow: 0 0 0 3px rgba(71, 114, 87, 0.3) !important;
+}
+
+.edun-slider-btn:active {
+    transform: scale(0.95);
+    outline: none !important;
+}
+
+.edun-slider-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.edun-slider-btn svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* Next button - filled style */
+.edun-slider-next {
+    background: #294338 !important;
+    color: #FFFFFF !important;
+}
+
+.edun-slider-next:hover:not(:disabled) {
+    background: #477257 !important;
+}
+
+.edun-slider-next:focus,
+.edun-slider-next:focus-visible {
+    outline: none !important;
+    border-color: #477257 !important;
+    box-shadow: 0 0 0 3px rgba(71, 114, 87, 0.3) !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .edun-logo-item {
+        flex: 0 0 calc((100% - 60px) / 4); /* 4 items on tablet */
+    }
+
+    .edun-integrations-slider-section {
+        padding-left: 40px !important;
+        padding-right: 40px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .edun-logo-item {
+        flex: 0 0 calc((100% - 20px) / 2); /* 2 items on mobile */
+    }
+
+    .edun-integrations-slider-section {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+        padding-top: 60px !important;
+        padding-bottom: 60px !important;
+    }
+
+    .edun-slider-btn {
+        width: 40px;
+        height: 40px;
+    }
+
+    .edun-slider-btn svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .edun-logo-item {
+        flex: 0 0 100%; /* 1 item on small mobile */
+    }
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+@media print {
+    .wp-block-button {
+        display: none;
+    }
+
+    .wp-block-group.alignfull {
+        padding: 20px !important;
+    }
+
+    .edun-navbar {
+        display: none;
+    }
+}

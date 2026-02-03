@@ -1,0 +1,150 @@
+/**
+ * Mobile Menu Overlay Styles
+ *
+ * Styles for pattern-based mobile menu
+ *
+ * @package Edun_Child
+ */
+
+/* ============================================
+   MOBILE MENU OVERLAY (Pattern-based)
+   ============================================ */
+.edun-mobile-menu-overlay {
+    display: none !important;
+    position: fixed !important;
+    top: 70px !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    z-index: 99999 !important;
+    overflow: hidden !important;
+    width: 100vw !important;
+    height: calc(100vh - 70px) !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 60px 120px !important;
+    box-sizing: border-box !important;
+}
+
+/* Show menu when open */
+.edun-mobile-menu-overlay.menu-active {
+    display: block !important;
+}
+
+/* Menu Links Styling */
+.edun-mobile-menu-overlay a {
+    color: inherit !important;
+    text-decoration: none !important;
+    transition: opacity 0.3s ease;
+}
+
+.edun-mobile-menu-overlay a:hover {
+    opacity: 0.8;
+}
+
+/* Hero Image - absolute, contained inside the overlay */
+.edun-mobile-menu-overlay .edun-menu-hero-image {
+    position: absolute !important;
+    bottom: 0 !important;
+    right: 0 !important;
+    max-width: 45% !important;
+    max-height: 80% !important;
+    margin: 0 !important;
+    z-index: 1;
+
+}
+
+.edun-mobile-menu-overlay .edun-menu-hero-image img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 100% !important;
+    object-fit: contain !important;
+    object-position: bottom right !important;
+}
+
+/* Menu columns above image */
+.edun-mobile-menu-overlay .wp-block-columns {
+    position: relative;
+    z-index: 2;
+}
+
+/* Reduce spacing between menu items to fit in viewport */
+.edun-mobile-menu-overlay p {
+    margin-bottom: 40px !important;
+}
+
+.edun-mobile-menu-overlay h3 {
+    margin-bottom: 40px !important;
+}
+
+/* Body Lock When Menu Open */
+body.menu-open {
+    overflow: hidden !important;
+}
+
+/* ============================================
+   RESPONSIVE - MOBILE
+   ============================================ */
+@media (max-width: 767px) {
+    .edun-mobile-menu-overlay {
+        padding: 30px 20px !important;
+    }
+
+    .edun-mobile-menu-overlay .wp-block-columns {
+        flex-direction: column !important;
+        gap: 20px !important;
+    }
+
+    .edun-mobile-menu-overlay .wp-block-column {
+        flex-basis: auto !important;
+        width: 100% !important;
+    }
+
+    .edun-mobile-menu-overlay p {
+        margin-bottom: 20px !important;
+        font-size: 32px !important;
+    }
+
+    .edun-mobile-menu-overlay h3 {
+        margin-bottom: 20px !important;
+        font-size: 36px !important;
+    }
+
+    .edun-mobile-menu-overlay .edun-menu-hero-image {
+        max-width: 50% !important;
+        max-height: 60% !important;
+        opacity: 0.4;
+        right: 10px !important;
+    }
+}
+
+/* ============================================
+   RESPONSIVE - TABLET
+   ============================================ */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .edun-mobile-menu-overlay {
+        padding: 40px 60px !important;
+    }
+
+    .edun-mobile-menu-overlay p {
+        margin-bottom: 30px !important;
+    }
+
+    .edun-mobile-menu-overlay h3 {
+        margin-bottom: 30px !important;
+    }
+
+    .edun-mobile-menu-overlay .edun-menu-hero-image {
+        max-width: 45% !important;
+        max-height: 75% !important;
+    }
+}
+
+/* ============================================
+   RESPONSIVE - DESKTOP
+   ============================================ */
+@media (min-width: 1200px) {
+    .edun-mobile-menu-overlay {
+        padding: 60px 120px !important;
+    }
+}

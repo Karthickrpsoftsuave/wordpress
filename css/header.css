@@ -1,0 +1,652 @@
+/**
+ * Edun Custom Header Styles
+ * 
+ * Add this to your child theme's style.css
+ * 
+ * @package Edun_Child
+ */
+
+/* ============================================
+   HEADER - MAIN CONTAINER
+   ============================================ */
+.edun-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+.edun-header.scrolled {
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+}
+
+.edun-header-container {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* ============================================
+   LOGO
+   ============================================ */
+.edun-logo a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.edun-logo-text {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #1a2e23;
+}
+
+.edun-logo-white span {
+    color: #ffffff;
+}
+
+.edun-logo .custom-logo {
+    max-height: 36px;
+    width: auto;
+}
+
+/* ============================================
+   DESKTOP NAVIGATION - HIDDEN (Only hamburger menu)
+   ============================================ */
+.edun-nav-desktop {
+    display: none !important;
+}
+
+.edun-menu {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.edun-menu li {
+    position: relative;
+}
+
+.edun-menu > li > a {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: #1a2e23;
+    text-decoration: none;
+    padding: 8px 0;
+    transition: color 0.3s ease;
+}
+
+.edun-menu > li > a:hover {
+    color: #2d4a3e;
+}
+
+/* Dropdown Arrow */
+.edun-menu > li.menu-item-has-children > a::after {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg);
+    margin-left: 6px;
+    margin-bottom: 3px;
+    transition: transform 0.3s ease;
+}
+
+.edun-menu > li.menu-item-has-children:hover > a::after {
+    transform: rotate(-135deg);
+}
+
+/* Dropdown Menu */
+.edun-menu .sub-menu {
+    position: absolute;
+    top: 100%;
+    left: -20px;
+    min-width: 200px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+    padding: 12px 0;
+    list-style: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.edun-menu li:hover > .sub-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.edun-menu .sub-menu li a {
+    display: block;
+    padding: 10px 24px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #1a2e23;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.edun-menu .sub-menu li a:hover {
+    background-color: #f5f7f2;
+    color: #2d4a3e;
+}
+
+/* ============================================
+   HEADER BUTTONS
+   ============================================ */
+.edun-header-buttons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Base Button Styles */
+.edun-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 50px;
+    padding: 10px 22px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+}
+
+/* Outline Button (Login) */
+.edun-btn-outline {
+    background-color: transparent;
+    color: #1a2e23;
+    border: 1.5px solid #1a2e23;
+}
+
+.edun-btn-outline:hover {
+    background-color: #1a2e23;
+    color: #ffffff;
+}
+
+/* Primary Button (Get Started) */
+.edun-btn-primary {
+    background-color: #2d4a3e;
+    color: #ffffff;
+}
+
+.edun-btn-primary:hover {
+    background-color: #1a2e23;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(45, 74, 62, 0.3);
+}
+
+/* White Outline Button (Mobile) */
+.edun-btn-outline-white {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1.5px solid #ffffff;
+}
+
+.edun-btn-outline-white:hover {
+    background-color: #ffffff;
+    color: #2d4a3e;
+}
+
+/* White Filled Button (Mobile) */
+.edun-btn-white {
+    background-color: #ffffff;
+    color: #2d4a3e;
+}
+
+.edun-btn-white:hover {
+    background-color: #f5f7f2;
+}
+
+/* Show Login/Get Started buttons on all screens */
+.edun-header-buttons .edun-btn-outline,
+.edun-header-buttons .edun-btn-primary {
+    display: inline-flex;
+}
+
+/* ============================================
+   HAMBURGER MENU BUTTON
+   ============================================ */
+.edun-menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background-color: #2d4a3e;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.edun-menu-toggle:hover {
+    background-color: #1a2e23;
+}
+
+.hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 14px;
+    position: relative;
+}
+
+.hamburger-icon span {
+    display: block;
+    width: 18px;
+    height: 2px;
+    background-color: #ffffff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.hamburger-icon span:nth-child(1) {
+    transform: translateY(-5px);
+}
+
+.hamburger-icon span:nth-child(3) {
+    transform: translateY(5px);
+}
+
+/* Hamburger to X animation */
+.edun-menu-toggle.active .hamburger-icon span:nth-child(1) {
+    transform: rotate(45deg) translateY(0);
+}
+
+.edun-menu-toggle.active .hamburger-icon span:nth-child(2) {
+    opacity: 0;
+}
+
+.edun-menu-toggle.active .hamburger-icon span:nth-child(3) {
+    transform: rotate(-45deg) translateY(0);
+}
+
+/* ============================================
+   MOBILE MENU OVERLAY
+   ============================================ */
+.edun-mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99999;
+    background-color: #2d4a3e;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+    overflow: hidden;
+}
+
+.edun-mobile-menu.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.edun-mobile-menu-inner {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 16px 24px;
+}
+
+/* Mobile Header */
+.edun-mobile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.edun-mobile-header-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.edun-mobile-header-buttons .edun-btn {
+    padding: 8px 16px;
+    font-size: 13px;
+}
+
+/* Close Button */
+.edun-menu-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.edun-menu-close:hover {
+    background-color: #ffffff;
+}
+
+.edun-menu-close:hover svg path {
+    stroke: #2d4a3e;
+}
+
+/* Mobile Navigation */
+.edun-mobile-nav {
+    flex: 1;
+    padding: 20px 0;
+}
+
+.edun-mobile-nav-columns {
+    display: flex;
+    gap: 60px;
+}
+
+/* Main Links (Home, About, Contact) */
+.edun-mobile-menu-main {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.edun-mobile-menu-main li {
+    margin-bottom: 16px;
+}
+
+.edun-mobile-menu-main li a {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: #d4a853;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.edun-mobile-menu-main li a:hover {
+    color: #ffffff;
+}
+
+/* Products Column */
+.edun-mobile-nav-title {
+    display: block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 48px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.edun-mobile-menu-products {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.edun-mobile-menu-products li {
+    margin-bottom: 12px;
+}
+
+.edun-mobile-menu-products li a {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+    color: #ffffff;
+    text-decoration: none;
+    opacity: 0.9;
+    transition: all 0.3s ease;
+}
+
+.edun-mobile-menu-products li a:hover {
+    opacity: 1;
+    color: #d4a853;
+}
+
+/* Mobile Menu Image */
+.edun-mobile-menu-image {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 50%;
+    max-width: 400px;
+    z-index: 3;
+}
+
+.edun-mobile-menu-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ============================================
+   MOBILE MENU BACKGROUND DECORATIONS
+   ============================================ */
+.edun-mobile-menu-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    overflow: hidden;
+}
+
+/* Wavy Shape at Bottom */
+.edun-bg-shape-1 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background: linear-gradient(180deg, transparent 0%, rgba(26, 46, 35, 0.3) 100%);
+}
+
+.edun-bg-shape-2 {
+    position: absolute;
+    bottom: -50px;
+    right: -100px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(61, 107, 90, 0.4) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+/* Decorative Circles */
+.edun-bg-circles {
+    position: absolute;
+    top: 20%;
+    right: 30%;
+    width: 200px;
+    height: 200px;
+}
+
+.edun-bg-circles::before {
+    content: '';
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border: 2px dashed rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+}
+
+.edun-bg-circles::after {
+    content: '';
+    position: absolute;
+    top: 30px;
+    left: 50px;
+    width: 80px;
+    height: 80px;
+    background: rgba(212, 168, 83, 0.2);
+    border-radius: 50%;
+}
+
+/* ============================================
+   BODY LOCK WHEN MENU OPEN
+   ============================================ */
+body.menu-open {
+    overflow: hidden;
+}
+
+/* ============================================
+   RESPONSIVE - TABLET
+   ============================================ */
+@media (max-width: 991px) {
+    .edun-header-container {
+        /* padding: 12px 20px; */
+    }
+    
+    /* Keep nav hidden */
+    .edun-nav-desktop {
+        display: none !important;
+    }
+    
+    /* Show buttons and hamburger */
+    .edun-header-buttons .edun-btn-outline,
+    .edun-header-buttons .edun-btn-primary {
+        display: inline-flex;
+    }
+    
+    .edun-menu-toggle {
+        display: flex;
+    }
+}
+
+/* ============================================
+   RESPONSIVE - DESKTOP
+   ============================================ */
+@media (min-width: 992px) {
+    .edun-header-container {
+        /* padding: 18px 40px; */
+    }
+    
+    /* Keep desktop nav HIDDEN - we use hamburger menu */
+    .edun-nav-desktop {
+        display: none !important;
+    }
+    
+    /* Show header buttons on desktop */
+    .edun-header-buttons .edun-btn-outline,
+    .edun-header-buttons .edun-btn-primary {
+        display: inline-flex;
+    }
+    
+    /* Show hamburger on desktop too */
+    .edun-menu-toggle {
+        display: flex;
+    }
+}
+
+/* ============================================
+   RESPONSIVE - LARGE DESKTOP
+   ============================================ */
+@media (min-width: 1200px) {
+    .edun-header-container {
+    padding: 20px 60px;
+    }
+    
+    .edun-menu {
+        gap: 40px;
+    }
+}
+
+/* ============================================
+   RESPONSIVE - MOBILE SMALL
+   ============================================ */
+@media (max-width: 480px) {
+    .edun-header-container {
+        padding: 12px 16px;
+    }
+    
+    /* Hide buttons on very small screens - only show hamburger */
+    .edun-header-buttons .edun-btn-outline,
+    .edun-header-buttons .edun-btn-primary {
+        display: none;
+    }
+    
+    .edun-mobile-menu-inner {
+        padding: 12px 16px;
+    }
+    
+    .edun-mobile-header-buttons .edun-btn-outline-white,
+    .edun-mobile-header-buttons .edun-btn-white {
+        display: none;
+    }
+    
+    .edun-mobile-menu-main li a {
+        font-size: 24px;
+    }
+    
+    .edun-mobile-nav-columns {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .edun-mobile-menu-image {
+        width: 70%;
+        opacity: 0.3;
+    }
+}
+
+/* ============================================
+   TABLET - Mobile menu adjustments
+   ============================================ */
+@media (min-width: 481px) {
+    .edun-mobile-header-buttons .edun-btn-outline-white,
+    .edun-mobile-header-buttons .edun-btn-white {
+        display: inline-flex;
+    }
+    
+    .edun-mobile-nav-columns {
+        padding-left: 250px;
+        padding-top: 50px;
+    }
+    
+    .edun-mobile-menu-main li a {
+        font-size: 32px;
+    }
+}
+
+/* ============================================
+   SPACER FOR FIXED HEADER
+   ============================================ */
+.edun-header-spacer {
+    height: 76px;
+}
+
+@media (min-width: 992px) {
+    .edun-header-spacer {
+        height: 82px;
+    }
+}
+
+
+
+.entry-content > p:empty {
+    display: none;
+    margin: 0;
+}

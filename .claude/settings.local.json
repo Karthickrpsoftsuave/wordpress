@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(claude mcp add:*)",
+      "mcp__figma-desktop__get_screenshot",
+      "WebFetch(domain:localhost)"
+    ]
+  }
+}

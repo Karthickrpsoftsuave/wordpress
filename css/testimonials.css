@@ -1,0 +1,350 @@
+/**
+ * Testimonials Section Styles
+ *
+ * Matches Figma design specifications
+ */
+
+/* ========================================
+   Main Section
+   ======================================== */
+
+.testimonials-section {
+    background-color: #477257; /* Green */
+    padding: 100px 0;
+    overflow: hidden;
+    position: relative;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+}
+
+.testimonials-container {
+    max-width: 1129px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+}
+
+/* ========================================
+   Slider Container
+   ======================================== */
+
+.testimonials-slider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.testimonials-slider.testimonials-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ========================================
+   Header
+   ======================================== */
+
+.testimonials-header {
+    text-align: center;
+    width: 100%;
+}
+
+.testimonials-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 1;
+    letter-spacing: 0;
+    color: #F7F6F0; /* Cream */
+    margin: 0 0 20px 0;
+}
+
+/* ========================================
+   Slides Container
+   ======================================== */
+
+.testimonials-slides {
+    position: relative;
+    width: 100%;
+    min-height: 350px; /* Prevents layout shift */
+}
+
+/* ========================================
+   Individual Slide
+   ======================================== */
+
+.testimonial-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(30px);
+    transition: opacity 0.5s ease,
+                transform 0.5s ease,
+                visibility 0.5s ease;
+}
+
+.testimonial-slide.active {
+    position: relative;
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+/* ========================================
+   Star Rating
+   ======================================== */
+
+.testimonial-rating {
+    font-size: 32px;
+    line-height: 1;
+    color: #294338; /* Edun Green */
+    margin: 0;
+}
+
+/* ========================================
+   Testimonial Text
+   ======================================== */
+
+.testimonial-text {
+    max-width: 889px;
+    margin: 0 auto;
+}
+
+.testimonial-text p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.5;
+    letter-spacing: 0;
+    color: #F7F6F0; /* Cream */
+    margin: 0;
+}
+
+/* ========================================
+   Customer Info
+   ======================================== */
+
+.testimonial-customer {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.customer-name {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1;
+    letter-spacing: 0;
+    color: #D5D5BC; /* Olive */
+    margin: 0;
+}
+
+.customer-role {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1;
+    letter-spacing: 0;
+    color: #D5D5BC; /* Olive */
+    margin: 0;
+}
+
+/* ========================================
+   Navigation Arrows
+   ======================================== */
+
+.testimonials-navigation {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+    justify-content: center;
+}
+
+.testimonial-arrow {
+    width: 48px;
+    height: 48px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    padding: 12px;
+}
+
+.testimonial-arrow:hover {
+    transform: scale(1.1);
+}
+
+.testimonial-arrow:active {
+    transform: scale(0.95);
+}
+
+.testimonial-arrow.prev-arrow {
+    background-color: transparent;
+    border: 2px solid #294338; /* Edun Green */
+}
+
+.testimonial-arrow.prev-arrow:hover {
+    background-color: rgba(41, 67, 56, 0.1);
+}
+
+.testimonial-arrow.next-arrow {
+    background-color: #294338; /* Edun Green */
+}
+
+.testimonial-arrow.next-arrow:hover {
+    background-color: #1f3429;
+}
+
+.testimonial-arrow svg {
+    width: 31px;
+    height: 31px;
+    display: block;
+}
+
+/* ========================================
+   Empty State (for admins)
+   ======================================== */
+
+.testimonials-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+}
+
+/* ========================================
+   Responsive Styles
+   ======================================== */
+
+/* Tablet */
+@media screen and (max-width: 1024px) {
+    .testimonials-container {
+        max-width: 90%;
+    }
+
+    .testimonials-title {
+        font-size: 28px;
+    }
+
+    .testimonial-text {
+        max-width: 90%;
+    }
+
+    .testimonial-text p {
+        font-size: 16px;
+    }
+}
+
+/* Mobile */
+@media screen and (max-width: 768px) {
+    .testimonials-section {
+        padding: 60px 20px;
+    }
+
+    .testimonials-title {
+        font-size: 24px;
+        margin-bottom: 16px;
+    }
+
+    .testimonial-rating {
+        font-size: 24px;
+    }
+
+    .testimonial-text p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .customer-name,
+    .customer-role {
+        font-size: 14px;
+    }
+
+    .testimonials-slides {
+        min-height: 300px;
+    }
+
+    .testimonials-navigation {
+        gap: 20px;
+    }
+
+    .testimonial-arrow {
+        width: 44px;
+        height: 44px;
+    }
+
+    .testimonial-arrow svg {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+/* Small Mobile */
+@media screen and (max-width: 480px) {
+    .testimonials-section {
+        padding: 40px 15px;
+    }
+
+    .testimonials-title {
+        font-size: 20px;
+    }
+
+    .testimonial-rating {
+        font-size: 20px;
+    }
+
+    .testimonial-text p {
+        font-size: 13px;
+    }
+
+    .testimonials-slides {
+        min-height: 280px;
+    }
+}
+
+/* ========================================
+   Accessibility
+   ======================================== */
+
+/* Focus states for keyboard navigation */
+.testimonial-arrow:focus {
+    outline: 2px solid #F7F6F0;
+    outline-offset: 2px;
+}
+
+.testimonial-arrow:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .testimonial-slide,
+    .testimonials-slider,
+    .testimonial-arrow {
+        transition: none;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .testimonials-section {
+        border-top: 3px solid #F7F6F0;
+        border-bottom: 3px solid #F7F6F0;
+    }
+}

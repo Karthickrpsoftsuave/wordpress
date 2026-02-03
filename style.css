@@ -1,0 +1,182 @@
+/*
+ Theme Name:   Astra Child Theme
+ Theme URI:    https://helloedun.co.uk
+ Description:  Child theme for Edun website with custom Gutenberg block patterns
+ Author:       SoftSuave Technologies
+ Author URI:   https://softsuave.com
+ Template:     astra
+ Version:      1.0.0
+ License:      GNU General Public License v2 or later
+ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+ Text Domain:  edun-child
+*/
+
+/*
+ * IMPORTANT: Change "developer theme name" above to your parent theme's folder name
+ */
+
+/* ============================================
+   HIDE ASTRA DEFAULT HEADER
+   ============================================ */
+.site-header,
+#masthead,
+.ast-header-stacked,
+.main-header-bar-wrap,
+.ast-primary-header,
+.ast-above-header-wrap,
+.ast-below-header-wrap,
+header.site-header {
+    display: none !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+}
+
+/* Remove Astra header spacing from layout */
+.ast-header-stacked .site-content,
+.site-content,
+#content {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+body, body.edun-theme {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+}
+
+/* ============================================
+   GOOGLE FONTS
+   ============================================ */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
+
+/* ============================================
+   CSS VARIABLES
+   ============================================ */
+:root {
+    --edun-dark-green: #1a2e23;
+    --edun-medium-green: #2d4a3e;
+    --edun-accent-green: #3d6b5a;
+    --edun-light-green: #5a6b60;
+    --edun-muted-green: #a8b5ac;
+    --edun-off-white: #f5f7f2;
+    --edun-cream: #e8ede9;
+    --edun-gold: #d4a853;
+    --edun-white: #ffffff;
+    --edun-font-primary: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ============================================
+   GLOBAL STYLES
+   ============================================ */
+body {
+    font-family: var(--edun-font-primary);
+}
+
+.wp-block-group[style*="#f5f7f2"],
+.wp-block-group[style*="#ffffff"],
+.wp-block-group[style*="#2d4a3e"] {
+    font-family: var(--edun-font-primary);
+}
+
+/* ============================================
+   BUTTON STYLES
+   ============================================ */
+.wp-block-button__link[style*="background-color:#2d4a3e"] {
+    transition: all 0.3s ease;
+}
+
+.wp-block-button__link[style*="background-color:#2d4a3e"]:hover {
+    background-color: var(--edun-dark-green) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(45, 74, 62, 0.3);
+}
+
+.wp-block-button__link[style*="border-color:#1a2e23"]:hover {
+    background-color: var(--edun-dark-green) !important;
+    color: var(--edun-white) !important;
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+.edun-hero-content-box {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    max-width: 550px;
+    position: relative;
+    z-index: 2;
+}
+
+.edun-hero-content-box::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: 8px;
+    height: 8px;
+    background-color: #4eb8b8;
+    border-radius: 50%;
+    box-shadow:
+        15px 0 0 #4eb8b8,
+        0 15px 0 #4eb8b8,
+        15px 15px 0 #4eb8b8;
+}
+
+/* ============================================
+   RESPONSIVE STYLES
+   ============================================ */
+@media (max-width: 1024px) {
+    h1.has-text-color[style*="font-size:48px"] {
+        font-size: 38px !important;
+    }
+
+    h2.has-text-color[style*="font-size:36px"],
+    h2.has-text-color[style*="font-size:32px"] {
+        font-size: 28px !important;
+    }
+
+    .edun-hero-content-box {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    h1.has-text-color[style*="font-size:48px"] {
+        font-size: 32px !important;
+    }
+
+    h2.has-text-color[style*="font-size:36px"],
+    h2.has-text-color[style*="font-size:32px"] {
+        font-size: 24px !important;
+    }
+
+    .edun-hero-content-box::before {
+        display: none;
+    }
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+.wp-block-button__link:focus-visible {
+    outline: 3px solid var(--edun-gold);
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}

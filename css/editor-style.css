@@ -23,3 +23,145 @@
 .has-edun-gold-background-color { background-color: #d4a853; }
 .has-edun-white-color { color: #ffffff; }
 .has-edun-white-background-color { background-color: #ffffff; }
+
+/* ============================================
+   EDITOR-ONLY VISIBILITY FIXES
+   Force hidden JS elements to show in editor
+   ============================================ */
+
+/* ---- HEADER NAVBAR ---- */
+.editor-styles-wrapper .edun-header-navbar,
+.block-editor-block-list__layout .edun-header-navbar {
+    position: relative !important;
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    margin-bottom: 20px !important;
+}
+
+/* ---- MOBILE MENU OVERLAY - FORCE VISIBLE ---- */
+/* Multiple selectors for higher specificity */
+.editor-styles-wrapper .wp-block-group.edun-mobile-menu-overlay,
+.editor-styles-wrapper div.edun-mobile-menu-overlay,
+.editor-styles-wrapper .edun-mobile-menu-overlay,
+.block-editor-block-list__layout .edun-mobile-menu-overlay,
+.block-editor-iframe__body .edun-mobile-menu-overlay,
+html body .edun-mobile-menu-overlay {
+    display: block !important;
+    position: relative !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 200px !important;
+    max-width: 100% !important;
+    margin: 20px 0 !important;
+    padding: 60px 40px 40px 40px !important;
+    z-index: 1 !important;
+    overflow: visible !important;
+    background-color: #477257 !important;
+    border: 3px dashed #1a3a28 !important;
+    border-radius: 8px !important;
+}
+
+.editor-styles-wrapper .edun-mobile-menu-overlay::before,
+.block-editor-block-list__layout .edun-mobile-menu-overlay::before,
+html body .edun-mobile-menu-overlay::before {
+    content: "📱 MOBILE MENU (Hidden until hamburger clicked)" !important;
+    display: block !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    padding: 10px 20px !important;
+    background: #1a3a28 !important;
+    color: #fff !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    text-align: center !important;
+    border-radius: 5px 5px 0 0 !important;
+}
+
+/* Fix hero image in menu */
+.editor-styles-wrapper .edun-mobile-menu-overlay .edun-menu-hero-image,
+html body .edun-mobile-menu-overlay .edun-menu-hero-image {
+    position: relative !important;
+    max-width: 250px !important;
+    opacity: 0.6 !important;
+    bottom: auto !important;
+    right: auto !important;
+}
+
+/* ---- CRM SIDEBAR - FORCE VISIBLE ---- */
+.editor-styles-wrapper .wp-block-group.crm-sidebar-panel,
+.editor-styles-wrapper div.crm-sidebar-panel,
+.editor-styles-wrapper .crm-sidebar-panel,
+.editor-styles-wrapper #core-crm-sidebar,
+.block-editor-block-list__layout .crm-sidebar-panel,
+.block-editor-block-list__layout #core-crm-sidebar,
+html body .crm-sidebar-panel,
+html body #core-crm-sidebar {
+    display: block !important;
+    position: relative !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100% !important;
+    margin: 20px 0 !important;
+    padding: 60px 20px 20px 20px !important;
+    z-index: 1 !important;
+    background: #f5f9f7 !important;
+    border: 3px dashed #477257 !important;
+    border-radius: 8px !important;
+}
+
+.editor-styles-wrapper .crm-sidebar-panel::before,
+.editor-styles-wrapper #core-crm-sidebar::before,
+.block-editor-block-list__layout .crm-sidebar-panel::before,
+html body .crm-sidebar-panel::before,
+html body #core-crm-sidebar::before {
+    content: "📊 CRM SIDEBAR (Hidden until 'Discover more' clicked)" !important;
+    display: block !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    padding: 10px 20px !important;
+    background: #477257 !important;
+    color: #fff !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    text-align: center !important;
+    border-radius: 5px 5px 0 0 !important;
+}
+
+/* CRM Sidebar Content */
+.editor-styles-wrapper .crm-sidebar-content,
+.block-editor-block-list__layout .crm-sidebar-content,
+html body .crm-sidebar-content {
+    position: relative !important;
+    transform: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    background: #ffffff !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+    padding: 20px !important;
+    border-radius: 8px !important;
+}
+
+/* Show accordion content in editor */
+.editor-styles-wrapper .crm-accordion-content,
+.block-editor-block-list__layout .crm-accordion-content {
+    display: block !important;
+}

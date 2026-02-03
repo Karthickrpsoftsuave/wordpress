@@ -48,6 +48,8 @@ function edun_register_block_patterns_from_files() {
     $pattern_files = array(
         'navbar'                      => 'navbar.php',
         'header-navbar'               => 'header-navbar.php',
+        'header-page-template'        => 'header-page-template.php',
+        'header-shortcode'            => 'header-shortcode.php',
         'mobile-menu-overlay'         => 'mobile-menu-overlay.php',
         'hero-section'                => 'hero-section.php',
         'what-is-edun'                => 'what-is-edun.php',
@@ -59,6 +61,8 @@ function edun_register_block_patterns_from_files() {
         'testimonials'                => 'testimonials.php',
         'feature-section-with-image'  => 'feature-section-with-image.php',
         'footer'                      => 'footer.php',
+        'footer-page-template'        => 'footer-page-template.php',
+        'footer-shortcode'            => 'footer-shortcode.php',
         'core-crm-sidebar'            => 'core-crm-sidebar.php',
     );
 

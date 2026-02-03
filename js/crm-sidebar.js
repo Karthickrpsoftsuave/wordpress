@@ -50,20 +50,16 @@
             document.body.classList.remove('crm-sidebar-open');
         };
 
-        // Find and setup ALL close buttons (handles WordPress button block structure)
+        // Setup close button functionality
         function setupCloseButtons() {
-            // Target any element with crm-sidebar-close class or inside it
             var closeSelectors = [
                 '.crm-sidebar-close',
-                '.crm-sidebar-close a',
-                '.crm-sidebar-close .wp-block-button__link',
-                '[class*="crm-sidebar-close"]',
-                '[class*="crm-sidebar-close"] a'
+                '.crm-sidebar-close-btn a',
+                '.crm-sidebar-close-btn .wp-block-button__link'
             ];
 
             closeSelectors.forEach(function(selector) {
                 sidebar.querySelectorAll(selector).forEach(function(btn) {
-                    btn.style.cursor = 'pointer';
                     btn.addEventListener('click', function(e) {
                         e.preventDefault();
                         e.stopPropagation();

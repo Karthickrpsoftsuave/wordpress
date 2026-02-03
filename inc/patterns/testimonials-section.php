@@ -132,7 +132,7 @@ $testimonials_count = $testimonials_query->post_count;
                     </div>
                     <div class="testimonial-slide active">
                         <div class="testimonial-text">
-                            <p style="color: #F7F6F0; opacity: 0.7;">
+                            <p class="testimonial-empty-message">
                                 <em>No testimonials yet. Add your first testimonial from the WordPress admin panel.</em>
                             </p>
                         </div>

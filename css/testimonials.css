@@ -8,14 +8,34 @@
    Main Section
    ======================================== */
 
+/* Testimonials wrapper - pattern container */
+.testimonials-wrapper {
+    margin: 0 !important;
+    padding: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+}
+
+/* Override Astra full-width styles */
+.ast-plain-container.ast-no-sidebar .entry-content > .alignfull.testimonials-wrapper,
+.ast-page-builder-template .ast-no-sidebar .entry-content > .alignfull.testimonials-wrapper,
+.testimonials-wrapper.alignfull {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+}
+
 .testimonials-section {
     background-color: #477257; /* Green */
     padding: 100px 0;
     overflow: hidden;
     position: relative;
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
-    margin-right: calc(-50vw + 50%);
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin-left: calc(-50vw + 50%) !important;
+    margin-right: calc(-50vw + 50%) !important;
+    box-sizing: border-box !important;
 }
 
 .testimonials-container {
@@ -226,6 +246,13 @@
     flex-direction: column;
     align-items: center;
     gap: 28px;
+}
+
+.testimonial-empty-message {
+    color: #F7F6F0 !important;
+    opacity: 0.7 !important;
+    text-align: center;
+    font-style: italic;
 }
 
 /* ========================================

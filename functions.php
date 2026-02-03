@@ -12,7 +12,7 @@ if (!defined('ABSPATH')) {
 }
 
 // Theme constants
-define('EDUN_CHILD_VERSION', '1.0.0');
+define('EDUN_CHILD_VERSION', '1.0.4'); // Fixed: Hidden elements now visible in editor
 define('EDUN_CHILD_DIR', get_stylesheet_directory());
 define('EDUN_CHILD_URI', get_stylesheet_directory_uri());
 
@@ -71,28 +71,31 @@ function edun_child_enqueue_assets() {
         null
     );
 
-    // Block patterns styles
+    // Block patterns styles - High priority to override parent theme
     wp_enqueue_style(
         'edun-patterns-style',
         EDUN_CHILD_URI . '/css/patterns.css',
-        array('edun-child-style'),
-        EDUN_CHILD_VERSION
+        array('edun-child-style', 'astra-theme-css'),
+        EDUN_CHILD_VERSION,
+        'all'
     );
 
     // Testimonials styles
     wp_enqueue_style(
         'edun-testimonials-style',
         EDUN_CHILD_URI . '/css/testimonials.css',
-        array('edun-child-style'),
-        EDUN_CHILD_VERSION
+        array('edun-child-style', 'edun-patterns-style'),
+        EDUN_CHILD_VERSION,
+        'all'
     );
 
     // CRM Sidebar styles
     wp_enqueue_style(
         'edun-crm-sidebar-style',
         EDUN_CHILD_URI . '/css/crm-sidebar.css',
-        array('edun-child-style'),
-        EDUN_CHILD_VERSION
+        array('edun-child-style', 'edun-patterns-style'),
+        EDUN_CHILD_VERSION,
+        'all'
     );
 
     // Mobile menu script
@@ -131,18 +134,78 @@ function edun_child_enqueue_assets() {
         true
     );
 }
-add_action('wp_enqueue_scripts', 'edun_child_enqueue_assets');
+add_action('wp_enqueue_scripts', 'edun_child_enqueue_assets', 15); // Priority 15 to load after Astra
 
 /**
  * Enqueue block editor styles
+ * IMPORTANT: editor-style.css must load LAST to override hidden elements
  */
 function edun_child_block_editor_styles() {
-    add_editor_style('css/editor-style.css');
+    // Pattern CSS first (defines styles for hidden elements)
     add_editor_style('css/patterns.css');
+    add_editor_style('css/testimonials.css');
+    add_editor_style('css/header-navbar-pattern.css');
+    add_editor_style('css/mobile-menu.css');
+    add_editor_style('css/crm-sidebar.css');
+    // Editor overrides LAST (makes hidden elements visible in editor)
+    add_editor_style('css/editor-style.css');
 
+    // Enqueue styles for block editor (including pattern previews)
+    wp_enqueue_style(
+        'edun-patterns-editor',
+        EDUN_CHILD_URI . '/css/patterns.css',
+        array(),
+        EDUN_CHILD_VERSION
+    );
+
+    wp_enqueue_style(
+        'edun-testimonials-editor',
+        EDUN_CHILD_URI . '/css/testimonials.css',
+        array('edun-patterns-editor'),
+        EDUN_CHILD_VERSION
+    );
+
+    wp_enqueue_style(
+        'edun-header-navbar-editor',
+        EDUN_CHILD_URI . '/css/header-navbar-pattern.css',
+        array('edun-patterns-editor'),
+        EDUN_CHILD_VERSION
+    );
+
+    wp_enqueue_style(
+        'edun-mobile-menu-editor',
+        EDUN_CHILD_URI . '/css/mobile-menu.css',
+        array('edun-patterns-editor'),
+        EDUN_CHILD_VERSION
+    );
+
+    wp_enqueue_style(
+        'edun-crm-sidebar-editor',
+        EDUN_CHILD_URI . '/css/crm-sidebar.css',
+        array('edun-patterns-editor'),
+        EDUN_CHILD_VERSION
+    );
+
+    // Editor overrides - MUST be last to show hidden elements
+    wp_enqueue_style(
+        'edun-editor-overrides',
+        EDUN_CHILD_URI . '/css/editor-style.css',
+        array('edun-mobile-menu-editor', 'edun-crm-sidebar-editor'),
+        EDUN_CHILD_VERSION
+    );
+
+    // Google Fonts for editor
     wp_enqueue_style(
         'edun-google-fonts-editor',
         'https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap',
+        array(),
+        null
+    );
+
+    // Poppins font for editor
+    wp_enqueue_style(
+        'edun-google-fonts-poppins-editor',
+        'https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap',
         array(),
         null
     );
@@ -248,3 +311,143 @@ function edun_child_body_classes($classes) {
     return $classes;
 }
 add_filter('body_class', 'edun_child_body_classes');
+
+/**
+ * Force enqueue pattern styles inline if not loading
+ * This is a fallback to ensure styles always load
+ */
+function edun_force_pattern_styles() {
+    // Only add inline styles if patterns.css isn't loading
+    $patterns_css_url = EDUN_CHILD_URI . '/css/patterns.css?ver=' . EDUN_CHILD_VERSION;
+    echo '<!-- Edun Pattern CSS: ' . esc_url($patterns_css_url) . ' -->' . "\n";
+}
+add_action('wp_head', 'edun_force_pattern_styles', 100);
+
+/**
+ * Debug: Check pattern registration
+ * Remove this after patterns start showing
+ */
+function edun_debug_patterns() {
+    if (is_admin() && current_user_can('manage_options')) {
+        $patterns_dir = get_stylesheet_directory() . '/inc/patterns/';
+        $count = 0;
+
+        $files = glob($patterns_dir . '*.php');
+        if ($files) {
+            foreach ($files as $file) {
+                if (file_exists($file)) {
+                    $count++;
+                }
+            }
+        }
+
+        echo '<!-- Edun Patterns Found: ' . $count . ' files -->';
+    }
+}
+add_action('admin_head', 'edun_debug_patterns');
+
+/**
+ * ==========================================================
+ * REUSABLE HEADER/FOOTER SHORTCODES
+ * ==========================================================
+ *
+ * Usage:
+ * 1. Create a page called "Header" (slug: header) - design your header there
+ * 2. Create a page called "Footer" (slug: footer) - design your footer there
+ * 3. Use [edun_header] and [edun_footer] shortcodes on any page
+ *
+ * When you edit the Header or Footer page, all pages using
+ * the shortcode will automatically update!
+ */
+
+/**
+ * Header Shortcode - [edun_header]
+ * Displays content from a page with slug "header"
+ */
+function edun_header_shortcode($atts) {
+    $atts = shortcode_atts(array(
+        'slug' => 'header', // Default page slug
+    ), $atts, 'edun_header');
+
+    return edun_get_page_content_by_slug($atts['slug'], 'header');
+}
+add_shortcode('edun_header', 'edun_header_shortcode');
+
+/**
+ * Footer Shortcode - [edun_footer]
+ * Displays content from a page with slug "footer"
+ */
+function edun_footer_shortcode($atts) {
+    $atts = shortcode_atts(array(
+        'slug' => 'footer', // Default page slug
+    ), $atts, 'edun_footer');
+
+    return edun_get_page_content_by_slug($atts['slug'], 'footer');
+}
+add_shortcode('edun_footer', 'edun_footer_shortcode');
+
+/**
+ * Generic Page Content Shortcode - [edun_page_content slug="page-slug"]
+ * Displays content from any page by its slug
+ */
+function edun_page_content_shortcode($atts) {
+    $atts = shortcode_atts(array(
+        'slug' => '', // Required page slug
+    ), $atts, 'edun_page_content');
+
+    if (empty($atts['slug'])) {
+        return '<!-- Edun: Please specify a page slug -->';
+    }
+
+    return edun_get_page_content_by_slug($atts['slug'], 'content');
+}
+add_shortcode('edun_page_content', 'edun_page_content_shortcode');
+
+/**
+ * Helper function to get page content by slug
+ *
+ * @param string $slug The page slug
+ * @param string $type The type of content (header, footer, content)
+ * @return string The rendered page content
+ */
+function edun_get_page_content_by_slug($slug, $type = 'content') {
+    // Get the page by slug
+    $page = get_page_by_path($slug);
+
+    if (!$page) {
+        if (current_user_can('edit_posts')) {
+            return '<!-- Edun: No page found with slug "' . esc_html($slug) . '". Please create a page with this slug. -->';
+        }
+        return '';
+    }
+
+    // Don't show if page is not published
+    if ($page->post_status !== 'publish') {
+        if (current_user_can('edit_posts')) {
+            return '<!-- Edun: Page "' . esc_html($slug) . '" is not published. -->';
+        }
+        return '';
+    }
+
+    // Get the content and apply block rendering
+    $content = $page->post_content;
+
+    // Parse and render blocks
+    $content = do_blocks($content);
+
+    // Apply content filters (shortcodes, etc.)
+    $content = do_shortcode($content);
+
+    // Use semantic HTML elements and ensure full width
+    $wrapper_class = 'edun-' . esc_attr($type) . '-wrapper';
+    $wrapper_style = 'width:100%;max-width:100%;margin:0;padding:0;display:block;';
+
+    // Use semantic HTML tags for header/footer
+    if ($type === 'header') {
+        return '<header class="' . $wrapper_class . '" style="' . $wrapper_style . '">' . $content . '</header>';
+    } elseif ($type === 'footer') {
+        return '<footer class="' . $wrapper_class . '" style="' . $wrapper_style . '">' . $content . '</footer>';
+    }
+
+    return '<div class="' . $wrapper_class . '" style="' . $wrapper_style . '">' . $content . '</div>';
+}

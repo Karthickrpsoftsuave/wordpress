@@ -1,8 +1,9 @@
 <?php
 /**
- * Footer Pattern
+ * Footer Page Template Pattern
  *
- * Main footer with company info, links and contact details
+ * Use this pattern on the "Footer" page for the [edun_footer] shortcode
+ * Edit this page once, and all pages using [edun_footer] will update!
  *
  * @package Edun_Child
  */
@@ -13,11 +14,11 @@ if (!defined('ABSPATH')) {
 }
 
 return array(
-    'title'       => __('Footer', 'edun-child'),
-    'description' => __('Main footer with company info, product links and contact details', 'edun-child'),
+    'title'       => __('Footer Page Template', 'edun-child'),
+    'description' => __('Complete footer template for use on the Footer page with shortcode', 'edun-child'),
     'categories'  => array('edun', 'footer'),
-    'content'     => '<!-- wp:group {"align":"full","layout":{"type":"constrained"},"className":"edun-footer"} -->
-<div class="wp-block-group alignfull edun-footer">
+    'content'     => '<!-- wp:group {"align":"full","layout":{"type":"constrained"},"className":"edun-site-footer edun-footer"} -->
+<div class="wp-block-group alignfull edun-site-footer edun-footer">
 
 <!-- wp:columns {"className":"edun-footer-columns"} -->
 <div class="wp-block-columns edun-footer-columns">
@@ -25,8 +26,8 @@ return array(
 <!-- wp:column {"className":"edun-footer-col-brand"} -->
 <div class="wp-block-column edun-footer-col-brand">
 
-<!-- wp:image {"sizeSlug":"full","className":"edun-footer-logo"} -->
-<figure class="wp-block-image size-full edun-footer-logo"><img src="" alt="edun"/></figure>
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"edun-footer-logo"} -->
+<figure class="wp-block-image size-full edun-footer-logo"><a href="/"><img src="' . esc_url(get_stylesheet_directory_uri()) . '/assets/edun-logo-white.svg" alt="edun"/></a></figure>
 <!-- /wp:image -->
 
 <!-- wp:paragraph {"className":"edun-footer-tagline"} -->
@@ -52,23 +53,23 @@ return array(
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"edun-footer-link"} -->
-<p class="edun-footer-link"><a href="#">About</a></p>
+<p class="edun-footer-link"><a href="/about">About</a></p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"edun-footer-link"} -->
-<p class="edun-footer-link"><a href="#">Contact</a></p>
+<p class="edun-footer-link"><a href="/contact">Contact</a></p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"edun-footer-link"} -->
-<p class="edun-footer-link"><a href="#">Partners</a></p>
+<p class="edun-footer-link"><a href="/partners">Partners</a></p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"edun-footer-link"} -->
-<p class="edun-footer-link"><a href="#">Cookies</a></p>
+<p class="edun-footer-link"><a href="/cookies">Cookies</a></p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"edun-footer-link"} -->
-<p class="edun-footer-link"><a href="#">Privacy</a></p>
+<p class="edun-footer-link"><a href="/privacy">Privacy</a></p>
 <!-- /wp:paragraph -->
 
 </div>
@@ -82,19 +83,19 @@ return array(
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"edun-footer-link"} -->
-<p class="edun-footer-link"><a href="#">Core CRM</a></p>
+<p class="edun-footer-link"><a href="/core-crm">Core CRM</a></p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"edun-footer-link"} -->
-<p class="edun-footer-link"><a href="#">Connect</a></p>
+<p class="edun-footer-link"><a href="/connect">Connect</a></p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"edun-footer-link"} -->
-<p class="edun-footer-link"><a href="#">ID</a></p>
+<p class="edun-footer-link"><a href="/id">ID</a></p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"edun-footer-link"} -->
-<p class="edun-footer-link"><a href="#">Worker</a></p>
+<p class="edun-footer-link"><a href="/worker">Worker</a></p>
 <!-- /wp:paragraph -->
 
 </div>
@@ -108,7 +109,7 @@ return array(
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"edun-footer-link"} -->
-<p class="edun-footer-link"><a href="#">LinkedIn</a></p>
+<p class="edun-footer-link"><a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a></p>
 <!-- /wp:paragraph -->
 
 </div>
@@ -134,7 +135,7 @@ return array(
 <div class="wp-block-column is-vertically-aligned-bottom edun-footer-decoration-col">
 
 <!-- wp:image {"align":"right","sizeSlug":"large","linkDestination":"none","className":"edun-footer-decoration"} -->
-<figure class="wp-block-image alignright size-large edun-footer-decoration"><img src="" alt=""/></figure>
+<figure class="wp-block-image alignright size-large edun-footer-decoration"><img src="' . esc_url(get_stylesheet_directory_uri()) . '/assets/images/footer-decoration.png" alt=""/></figure>
 <!-- /wp:image -->
 
 </div>

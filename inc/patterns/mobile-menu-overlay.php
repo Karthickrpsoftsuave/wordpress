@@ -16,51 +16,51 @@ return array(
     'title'       => __('Mobile Menu Overlay', 'edun-child'),
     'description' => __('Full-screen mobile menu - Add this after Header Navbar pattern', 'edun-child'),
     'categories'  => array('edun', 'header'),
-    'content'     => '<!-- wp:group {"style":{"spacing":{"padding":{"top":"140px","right":"192px","bottom":"100px","left":"192px"},"margin":{"top":"0","bottom":"0"}},"color":{"background":"#477257"}},"layout":{"type":"default"},"className":"edun-mobile-menu-overlay"} -->
-<div class="wp-block-group edun-mobile-menu-overlay has-background" id="edun-mobile-menu" style="background-color:#477257;margin-top:0;margin-bottom:0;padding-top:200px;padding-right:192px;padding-bottom:100px;padding-left:192px">
+    'content'     => '<!-- wp:group {"layout":{"type":"default"},"className":"edun-mobile-menu-overlay"} -->
+<div class="wp-block-group edun-mobile-menu-overlay" id="edun-mobile-menu">
 
-<!-- wp:columns {"style":{"spacing":{"blockGap":{"left":"200px"}}}} -->
-<div class="wp-block-columns">
+<!-- wp:columns {"className":"edun-mobile-menu-columns"} -->
+<div class="wp-block-columns edun-mobile-menu-columns">
 
-<!-- wp:column {"width":"360px"} -->
-<div class="wp-block-column" style="flex-basis:360px">
+<!-- wp:column {"className":"edun-mobile-menu-main"} -->
+<div class="wp-block-column edun-mobile-menu-main">
 
-<!-- wp:paragraph {"style":{"typography":{"fontSize":"48px","fontWeight":"700","lineHeight":"1"},"color":{"text":"#d5d5bc"},"spacing":{"margin":{"bottom":"92px"}}},"fontFamily":"poppins"} -->
-<p class="has-text-color has-poppins-font-family" style="color:#d5d5bc;margin-bottom:92px;font-size:48px;font-weight:700;line-height:1"><a href="/">Home</a></p>
+<!-- wp:paragraph {"className":"edun-mobile-menu-link edun-mobile-menu-link-home"} -->
+<p class="edun-mobile-menu-link edun-mobile-menu-link-home"><a href="/">Home</a></p>
 <!-- /wp:paragraph -->
 
-<!-- wp:paragraph {"style":{"typography":{"fontSize":"48px","fontWeight":"700","lineHeight":"1"},"color":{"text":"#f7f6f0"},"spacing":{"margin":{"bottom":"92px"}}},"fontFamily":"poppins"} -->
-<p class="has-text-color has-poppins-font-family" style="color:#f7f6f0;margin-bottom:92px;font-size:48px;font-weight:700;line-height:1"><a href="/about">About</a></p>
+<!-- wp:paragraph {"className":"edun-mobile-menu-link edun-mobile-menu-link-about"} -->
+<p class="edun-mobile-menu-link edun-mobile-menu-link-about"><a href="/about">About</a></p>
 <!-- /wp:paragraph -->
 
-<!-- wp:paragraph {"style":{"typography":{"fontSize":"48px","fontWeight":"700","lineHeight":"1"},"color":{"text":"#f7f6f0"}},"fontFamily":"poppins"} -->
-<p class="has-text-color has-poppins-font-family" style="color:#f7f6f0;font-size:48px;font-weight:700;line-height:1"><a href="/contact">Contact</a></p>
+<!-- wp:paragraph {"className":"edun-mobile-menu-link edun-mobile-menu-link-contact"} -->
+<p class="edun-mobile-menu-link edun-mobile-menu-link-contact"><a href="/contact">Contact</a></p>
 <!-- /wp:paragraph -->
 
 </div>
 <!-- /wp:column -->
 
-<!-- wp:column {"width":"360px"} -->
-<div class="wp-block-column" style="flex-basis:360px">
+<!-- wp:column {"className":"edun-mobile-menu-products"} -->
+<div class="wp-block-column edun-mobile-menu-products">
 
-<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"48px","fontWeight":"700","lineHeight":"1"},"color":{"text":"#f7f6f0"},"spacing":{"margin":{"bottom":"92px"}}},"fontFamily":"poppins"} -->
-<h3 class="wp-block-heading has-text-color has-poppins-font-family" style="color:#f7f6f0;margin-bottom:92px;font-size:48px;font-weight:700;line-height:1">Products</h3>
+<!-- wp:heading {"level":3,"className":"edun-mobile-menu-heading"} -->
+<h3 class="edun-mobile-menu-heading">Products</h3>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph {"style":{"typography":{"fontSize":"32px","fontWeight":"400","lineHeight":"1"},"color":{"text":"#f7f6f0"},"spacing":{"margin":{"bottom":"68px"}}},"fontFamily":"poppins"} -->
-<p class="has-text-color has-poppins-font-family" style="color:#f7f6f0;margin-bottom:68px;font-size:32px;font-weight:400;line-height:1"><a href="/core-crm">Core CRM</a></p>
+<!-- wp:paragraph {"className":"edun-mobile-menu-product-link"} -->
+<p class="edun-mobile-menu-product-link"><a href="/core-crm">Core CRM</a></p>
 <!-- /wp:paragraph -->
 
-<!-- wp:paragraph {"style":{"typography":{"fontSize":"32px","fontWeight":"400","lineHeight":"1"},"color":{"text":"#f7f6f0"},"spacing":{"margin":{"bottom":"68px"}}},"fontFamily":"poppins"} -->
-<p class="has-text-color has-poppins-font-family" style="color:#f7f6f0;margin-bottom:68px;font-size:32px;font-weight:400;line-height:1"><a href="/connect">Connect</a></p>
+<!-- wp:paragraph {"className":"edun-mobile-menu-product-link"} -->
+<p class="edun-mobile-menu-product-link"><a href="/connect">Connect</a></p>
 <!-- /wp:paragraph -->
 
-<!-- wp:paragraph {"style":{"typography":{"fontSize":"32px","fontWeight":"400","lineHeight":"1"},"color":{"text":"#f7f6f0"},"spacing":{"margin":{"bottom":"68px"}}},"fontFamily":"poppins"} -->
-<p class="has-text-color has-poppins-font-family" style="color:#f7f6f0;margin-bottom:68px;font-size:32px;font-weight:400;line-height:1"><a href="/id">ID</a></p>
+<!-- wp:paragraph {"className":"edun-mobile-menu-product-link"} -->
+<p class="edun-mobile-menu-product-link"><a href="/id">ID</a></p>
 <!-- /wp:paragraph -->
 
-<!-- wp:paragraph {"style":{"typography":{"fontSize":"32px","fontWeight":"400","lineHeight":"1"},"color":{"text":"#f7f6f0"}},"fontFamily":"poppins"} -->
-<p class="has-text-color has-poppins-font-family" style="color:#f7f6f0;font-size:32px;font-weight:400;line-height:1"><a href="/worker">Worker</a></p>
+<!-- wp:paragraph {"className":"edun-mobile-menu-product-link"} -->
+<p class="edun-mobile-menu-product-link"><a href="/worker">Worker</a></p>
 <!-- /wp:paragraph -->
 
 </div>
@@ -69,8 +69,8 @@ return array(
 </div>
 <!-- /wp:columns -->
 
-<!-- wp:image {"align":"right","width":"620px","sizeSlug":"large","linkDestination":"none","className":"edun-menu-hero-image"} -->
-<figure class="wp-block-image1 alignright size-large is-resized edun-menu-hero-image"><img src="http://test.local/wp-content/uploads/2026/01/Hero-Image-1.png" alt="Person with laptop" style="width:620px"/></figure>
+<!-- wp:image {"align":"right","sizeSlug":"large","linkDestination":"none","className":"edun-menu-hero-image"} -->
+<figure class="wp-block-image alignright size-large edun-menu-hero-image"><img src="http://test.local/wp-content/uploads/2026/01/Hero-Image-1.png" alt="Person with laptop"/></figure>
 <!-- /wp:image -->
 
 </div>

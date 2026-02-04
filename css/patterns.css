@@ -642,6 +642,9 @@
 
 .edun-core-crm-content {
     flex-basis: 552px !important;
+    min-width: 50%;
+    max-width: 50%;
+    width: 50% !important
 }
 
 .edun-core-crm-label {
@@ -690,6 +693,9 @@
 }
 
 .edun-core-crm-image-col {
+    min-width: 50%;
+    max-width: 50%;
+    width: 50% !important;
     flex-basis: 600px !important;
 }
 
@@ -714,6 +720,9 @@
 
 .edun-connect-image-col {
     flex-basis: 600px !important;
+    min-width: 50%;
+    max-width: 50%;
+    width: 50% !important;
 }
 
 .edun-connect-image img {
@@ -723,6 +732,9 @@
 
 .edun-connect-content {
     flex-basis: 552px !important;
+    min-width: 50%;
+    max-width: 50%;
+    width: 50% !important;
 }
 
 .edun-connect-label {
@@ -977,10 +989,10 @@
 .edun-menu-toggle {
     display: none;
 }
-.hameberger-menu .edun-menu-toggle{
+.hameberger-menu.edun-menu-toggle, .hamberger-close{
     width: 40px;
 }
-.hameberger-menu .edun-menu-toggle .wp-element-button{
+.hameberger-menu.edun-menu-toggle .wp-element-button, .hamberger-close .wp-element-button{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1218,7 +1230,11 @@ footer.edun-footer-wrapper .edun-site-footer,
 .edun-team-grid .wp-block-columns {
     justify-content: center !important;
     align-items: flex-start;
+    flex-wrap: wrap !important;
+    gap: 40px 60px !important;
 }
+
+
 
 .edun-team-row {
     margin-bottom: 70px !important;
@@ -1233,6 +1249,9 @@ footer.edun-footer-wrapper .edun-site-footer,
     flex-basis: 169px !important;
     flex-grow: 0 !important;
     flex-shrink: 0 !important;
+    max-width: 169px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
 }
 
 .edun-team-member-inner {

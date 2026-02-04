@@ -24,16 +24,26 @@
 
         var menuIcon = menuToggleBtn.querySelector('.menu-icon');
         var closeIcon = menuToggleBtn.querySelector('.close-icon');
+        var hambergerClose = document.querySelector('.hamberger-close');
+
 
         // Toggle menu on button click
         menuToggleBtn.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
-            if (mobileMenu.classList.contains('menu-active')) {
+           setMenu();
+        });
+        const setMenu =()=>{
+             if (mobileMenu.classList.contains('menu-active')) {
                 closeMenu();
             } else {
                 openMenu();
             }
+        }
+        hambergerClose.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+           setMenu();
         });
 
         // Close menu on escape key

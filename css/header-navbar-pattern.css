@@ -298,3 +298,12 @@ body:not(.block-editor-page):not(.wp-admin) .edun-header-navbar {
         padding: 20px 20px !important;
     }
 }
+.hamberger-close{
+    display: none !important;
+}
+.menu-open .hamberger-close{
+    display: block !important;
+}
+.menu-open .hameberger-menu{
+    display: none !important;
+}

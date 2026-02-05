@@ -20,19 +20,34 @@ function edun_testimonials_section_shortcode($atts) {
     // Extract attributes
     $atts = shortcode_atts(array(
         'autoplay' => 'false',
+        'category' => '',
     ), $atts);
 
     // Start output buffering
     ob_start();
 
+    // Build query args
+    $query_args = array(
+        'post_type'      => 'testimonial',
+        'posts_per_page' => -1,
+        'post_status'    => 'publish',
+        'orderby'        => 'date',
+        'order'          => 'DESC'
+    );
+
+    // Add category filter if specified
+    if (!empty($atts['category'])) {
+        $query_args['tax_query'] = array(
+            array(
+                'taxonomy' => 'testimonial_category',
+                'field'    => 'slug',
+                'terms'    => sanitize_text_field($atts['category']),
+            ),
+        );
+    }
+
 // Query testimonials
-$testimonials_query = new WP_Query(array(
-    'post_type'      => 'testimonial',
-    'posts_per_page' => -1,
-    'post_status'    => 'publish',
-    'orderby'        => 'date',
-    'order'          => 'DESC'
-));
+$testimonials_query = new WP_Query($query_args);
 
 $has_testimonials = $testimonials_query->have_posts();
 $testimonials_count = $testimonials_query->post_count;

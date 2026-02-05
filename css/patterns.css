@@ -789,7 +789,7 @@
 }
 
 /* Decorative leaf element on right side */
-.edun-pattern-core-crm::after {
+/* .edun-pattern-core-crm::after {
     content: '';
     position: absolute;
     right: 40px;
@@ -802,7 +802,7 @@
     z-index: 0;
     pointer-events: none;
     opacity: 0.7;
-}
+} */
 
 /* Connect Feature Section - Decorative leaves left side */
 .edun-pattern-connect {
@@ -811,7 +811,7 @@
 }
 
 /* Decorative leaf element on left side */
-.edun-pattern-connect::before {
+/* .edun-pattern-connect::before {
     content: '';
     position: absolute;
     left: 40px;
@@ -824,7 +824,7 @@
     z-index: 0;
     pointer-events: none;
     opacity: 0.7;
-}
+} */
 
 
 /* Ensure content is above decorative elements */

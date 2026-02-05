@@ -451,3 +451,41 @@ function edun_get_page_content_by_slug($slug, $type = 'content') {
 
     return '<div class="' . $wrapper_class . '" style="' . $wrapper_style . '">' . $content . '</div>';
 }
+
+/**
+ * ==========================================================
+ * REDIRECT HEADER/FOOTER PAGES TO HOME
+ * ==========================================================
+ *
+ * Prevents direct access to header/footer template pages
+ * while still allowing them to be edited in WordPress admin
+ */
+function edun_redirect_template_pages() {
+    // Don't redirect in admin or when editing
+    if (is_admin() || is_customize_preview()) {
+        return;
+    }
+
+    // Don't redirect when previewing (checking for preview parameter)
+    if (isset($_GET['preview']) && current_user_can('edit_posts')) {
+        return;
+    }
+
+    // Get the current page
+    global $post;
+
+    if (!$post) {
+        return;
+    }
+
+    // List of template page slugs to redirect
+    $template_pages = array('header', 'footer');
+
+    // Check if current page is a template page
+    if (is_page() && in_array($post->post_name, $template_pages)) {
+        // Redirect to home page
+        wp_redirect(home_url('/'), 301);
+        exit;
+    }
+}
+add_action('template_redirect', 'edun_redirect_template_pages');
